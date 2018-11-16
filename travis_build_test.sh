@@ -11,6 +11,7 @@ start eslint
 ./node_modules/eslint/bin/eslint.js \
   karma.conf.js \
   app/scripts/api.js \
+  app/scripts/Autocomplete.js \
   app/scripts/configs \
   app/scripts/factories \
   app/scripts/HeatmapTiledPixiTrack.js \
