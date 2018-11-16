@@ -211,7 +211,8 @@ const api = function api(context) {
      * @example
      * hgv.shareViewConfigAsLink('http://localhost:8989/api/v1/viewconfs')
      * .then((sharedViewConfig) => {
-     *   console.log(`Shared view config (ID: ${sharedViewConfig.id}) is available at ${sharedViewConfig.url}`)
+     *   console.log(`Shared view config (ID: ${sharedViewConfig.id}) is
+     *   available at ${sharedViewConfig.url}`)
      * })
      * .catch((err) => { console.error('Something did not work. Sorry', err); })
      */
@@ -253,9 +254,10 @@ const api = function api(context) {
      *
      * @example
      *
-     * hgv.setTrackValueScale(myView, myTrack, 0, 100); // Sets the scaling to [0, 100]
-     * hgv.setTrackValueScale(myView, myTrack); // Unsets the fixed scaling, i.e., enables 
-     * dynamic scaling again.
+     * hgv.setTrackValueScale(myView, myTrack, 0, 100);
+     * // Sets the scaling to [0, 100]
+     * hgv.setTrackValueScale(myView, myTrack);
+     * // Unsets the fixed scaling, i.e., enables dynamic scaling again.
      */
     setTrackValueScaleLimits(viewId, trackId, minValue, maxValue) {
       self.setTrackValueScaleLimits(viewId, trackId, minValue, maxValue);
@@ -382,7 +384,7 @@ const api = function api(context) {
           break;
       }
     },
-    
+
     /**
      * Get a Promise which returns a Blob containing a PNG for the current view.
      * It's possible to get string of the PNG bytes from that:
@@ -539,7 +541,7 @@ const api = function api(context) {
      *        yRange: [0, 317]
      *    }
      *
-     * ``rangeSelection:`` Returns a BED- (1D) or BEDPE (1d) array of the selected data and 
+     * ``rangeSelection:`` Returns a BED- (1D) or BEDPE (1d) array of the selected data and
      * genomic range (if chrom-sizes are available)
      *
      * .. code-block:: javascript
