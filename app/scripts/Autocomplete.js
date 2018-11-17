@@ -328,7 +328,8 @@ class Autocomplete extends React.Component {
           )}
           onFocus={this.composeEventHandlers(
             this.handleInputFocus.bind(this),
-            inputProps.onFocus && inp
+            inputProps.onFocus && inputProps.onFocus.bind(this),
+          )}
           onKeyDown={this.composeEventHandlers(
             this.handleKeyDown.bind(this),
             inputProps.onKeyDown && inputProps.onKeyDown.bind(this),
