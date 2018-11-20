@@ -12,6 +12,7 @@ start eslint
   karma.conf.js \
   app/scripts/api.js \
   app/scripts/Autocomplete.js \
+  app/scripts/AxisPixi.js \
   app/scripts/configs \
   app/scripts/factories \
   app/scripts/HeatmapTiledPixiTrack.js \
