@@ -137,8 +137,8 @@ class Autocomplete extends React.Component {
       const menuNode = this.refs.menu;
       if (itemNode) {
         scrollIntoView(
-          findDOMNode(itemNode),
-          findDOMNode(menuNode),
+          findDOMNode(itemNode), // eslint-disable-line react/no-find-dom-node
+          findDOMNode(menuNode), // eslint-disable-line react/no-find-dom-node
           { onlyScrollIfNeeded: true },
         );
       }
@@ -323,7 +323,7 @@ class Autocomplete extends React.Component {
       >
         <input
           {...inputProps}
-          ref={(el) => { this.inputEl = el; return el; } }
+          ref={(el) => { this.inputEl = el; return el; }}
           aria-autocomplete="list"
           autoComplete="off"
           onBlur={this.composeEventHandlers(
@@ -347,14 +347,15 @@ class Autocomplete extends React.Component {
             this.handleKeyUp.bind(this),
             inputProps.onKeyUp && inputProps.onKeyUp.bind(this),
           )}
-          ref={el => this.inputEl = el}
-          role="combobox"
+          role="combobox" // eslint-disable-line jsx-a11y/role-has-required-aria-props
           value={this.props.value}
         />
         {('open' in this.props ? this.props.open : this.state.isOpen) && this.renderMenu()}
         {this.props.debug && (
           <pre style={{ marginLeft: 300 }}>
-            {JSON.stringify(_debugStates.slice(_debugStates.length - 5, _debugStates.length), null, 2)}
+            {JSON.stringify(
+              _debugStates.slice(_debugStates.length - 5, _debugStates.length), null, 2
+            )}
           </pre>
         )}
       </div>
@@ -379,8 +380,8 @@ Autocomplete.defaultProps = {
   renderMenu(items, value, style) {
     return (
       <div
-        children={items}
-        style={{ ...style, ...this.menuStyle }}
+        children={items} // eslint-disable-line react/no-children-prop
+        style={{ ...style, ...this.menuStyle }} // eslint-disable-line react/no-this-in-sfc
       />
     );
   },
