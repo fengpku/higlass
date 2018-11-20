@@ -73,7 +73,6 @@ class AxisPixi {
 
   calculateAxisTickValues(valueScale, axisHeight) {
     const tickCount = Math.max(Math.ceil(axisHeight / TICK_HEIGHT), 1);
-    const i = 0;
 
 
     // create scale ticks but not all the way to the top
@@ -87,7 +86,8 @@ class AxisPixi {
     if (axisHeight > 100) {
       // console.log('valueScale.domain()', valueScale.domain());
       // console.log('valueScale.range()', valueScale.range());
-      // console.log('tickValues[0]', tickValues[0], 'tickValues[-1]', tickValues[tickValues.length-1]);
+      // console.log('tickValues[0]', tickValues[0], 'tickValues[-1]',
+      //             tickValues[tickValues.length-1]);
     }
 
     /*
@@ -142,7 +142,9 @@ class AxisPixi {
       const tick = this.tickValues[i];
 
       // draw ticks to the left of the axis
-      this.axisTexts[i].x = -(TICK_MARGIN + TICK_LENGTH + TICK_LABEL_MARGIN + this.axisTexts[i].width / 2);
+      this.axisTexts[i].x = -(
+        TICK_MARGIN + TICK_LENGTH + TICK_LABEL_MARGIN
+        + this.axisTexts[i].width / 2);
       this.axisTexts[i].y = valueScale(tick);
 
       graphics.moveTo(-TICK_MARGIN, valueScale(tick));
@@ -173,7 +175,9 @@ class AxisPixi {
     for (let i = 0; i < this.axisTexts.length; i++) {
       const tick = this.tickValues[i];
 
-      this.axisTexts[i].x = (TICK_MARGIN + TICK_LENGTH + TICK_LABEL_MARGIN + this.axisTexts[i].width / 2);
+      this.axisTexts[i].x = (
+        TICK_MARGIN + TICK_LENGTH + TICK_LABEL_MARGIN
+        + this.axisTexts[i].width / 2);
       this.axisTexts[i].y = valueScale(tick);
 
       graphics.moveTo(TICK_MARGIN, valueScale(tick));
@@ -200,7 +204,10 @@ class AxisPixi {
 
       while (j >= 0) {
         // go through and hide all overlapping tick marks
-        if ((this.axisTexts[i].y + this.axisTexts[i].height / 2) > (this.axisTexts[j].y - this.axisTexts[j].height / 2)) {
+        if (
+          (this.axisTexts[i].y + this.axisTexts[i].height / 2)
+          > (this.axisTexts[j].y - this.axisTexts[j].height / 2)
+        ) {
           this.axisTexts[j].visible = false;
         } else {
           // because the tick marks are ordered from top to bottom, if this
@@ -309,10 +316,10 @@ class AxisPixi {
   exportAxisRightSVG(valueScale, axisHeight) {
     const gAxis = this.exportVerticalAxis(axisHeight);
 
-    const line = this.createAxisSVGLine();
-    gAxis.appendChild(line);
+    const zeroLine = this.createAxisSVGLine();
+    gAxis.appendChild(zeroLine);
 
-    line.setAttribute('d',
+    zeroLine.setAttribute('d',
       `M0,0 L${TICK_MARGIN + TICK_LENGTH},0`);
 
     for (let i = 0; i < this.axisTexts.length; i++) {
