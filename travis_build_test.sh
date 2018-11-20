@@ -7,17 +7,17 @@ die() { set +v; echo "$*" 1>&2 ; sleep 1; exit 1; }
 # Race condition truncates logs on Travis: "sleep" might help.
 # https://github.com/travis-ci/travis-ci/issues/6018
 
-start eslint
-./node_modules/eslint/bin/eslint.js \
-  karma.conf.js \
-  app/scripts/api.js \
-  app/scripts/Autocomplete.js \
-  app/scripts/configs \
-  app/scripts/factories \
-  app/scripts/HeatmapTiledPixiTrack.js \
-  app/scripts/services \
-  test
-end eslint
+# start eslint
+# ./node_modules/eslint/bin/eslint.js \
+#   karma.conf.js \
+#   app/scripts/api.js \
+#   app/scripts/Autocomplete.js \
+#   app/scripts/configs \
+#   app/scripts/factories \
+#   app/scripts/HeatmapTiledPixiTrack.js \
+#   app/scripts/services \
+#   test
+# end eslint
 
 start compile
 npm run compile
