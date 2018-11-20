@@ -369,8 +369,13 @@ Autocomplete.defaultProps = {
     display: 'inline-block',
   },
   inputProps: {},
+  debug: false,
+  items: [],
+  open: false,
   onChange() {},
+  onFocus() {},
   onSelect() {},
+  sortItems() {},
   renderMenu(items, value, style) {
     return (
       <div
