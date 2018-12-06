@@ -36,8 +36,7 @@ npm install
 npm run start
 ```
 
-Many examples are available, but http://localhost:8080/svg is useful during development:
-It renders an SVG below the interactive visualization so it's easy to spot differences.
+A list of all examples is available at http://localhost:8080/examples.html.
 
 ### Tests
 
