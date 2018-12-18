@@ -114,7 +114,7 @@ class HeatmapOptions extends React.Component {
 
       return (
         <td
-          key={`l${i}`}
+          key={i} // eslint-disable react/no-array-index-key
           style={{
             border: '0px solid',
             position: 'relative',
@@ -123,7 +123,6 @@ class HeatmapOptions extends React.Component {
         >
           {closeButton}
           <SketchInlinePicker
-            key={i}
             color={this.state.colors[i]}
             onChange={(c) => {
               this.state.colors[i] = c;
