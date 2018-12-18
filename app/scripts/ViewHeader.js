@@ -245,11 +245,11 @@ class ViewHeader extends React.Component {
           </div>
           {this.state.width > VIEW_HEADER_MIN_WIDTH_SEARCH_BAR
             && <div styleName="multitrack-header-search">
-              {
-                this.props.isGenomePositionSearchBoxVisible
-                && GenomePositionSearchBox
-              }
-            </div>
+                  {
+                    this.props.isGenomePositionSearchBoxVisible
+                    && GenomePositionSearchBox
+                  }
+               </div>
           }
         </div>
         <nav styleName="multitrack-header-nav-list">

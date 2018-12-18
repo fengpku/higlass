@@ -114,7 +114,6 @@ class HeatmapOptions extends React.Component {
 
       return (
         <td
-          key={i} // eslint-disable react/no-array-index-key
           style={{
             border: '0px solid',
             position: 'relative',
