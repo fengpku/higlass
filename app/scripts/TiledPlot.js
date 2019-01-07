@@ -147,10 +147,7 @@ class TiledPlot extends React.Component {
 
   waitForDOMAttachment(callback) {
     if (!this.mounted) return;
-
-    const thisElement = ReactDOM.findDOMNode(this);
-
-    if (document.body.contains(thisElement)) {
+    if (document.body.contains(this.divTiledPlot)) {
       callback();
     } else {
       requestAnimationFrame(() => this.waitForDOMAttachment(callback));
