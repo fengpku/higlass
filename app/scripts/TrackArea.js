@@ -74,8 +74,7 @@ class TrackArea extends React.Component {
           className="no-zoom"
           height="10px"
           onClick={() => {
-            const imgDom = ReactDOM.findDOMNode(this.imgConfig);
-            const bbox = imgDom.getBoundingClientRect();
+            const bbox = this.imgConfig.getBoundingClientRect();
             this.props.onConfigTrackMenuOpened(this.props.uid, bbox);
           }}
           style={this.getSettingsImgStyle()}
