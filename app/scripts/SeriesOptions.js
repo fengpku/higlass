@@ -19,6 +19,8 @@ export class SeriesOptions extends React.Component {
   }
 
   handleNormalizeCheckboxChanged(e) {
+    // TODO: Is the fix here to use ref forwarding?
+    // https://reactjs.org/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components
     const domElement = ReactDOM.findDOMNode(this.normalizeCheckbox);
 
     this.setState({

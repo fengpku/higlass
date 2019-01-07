@@ -313,10 +313,7 @@ class HiGlassComponent extends React.Component {
 
   waitForDOMAttachment(callback) {
     if (!this.mounted) return;
-
-    const thisElement = ReactDOM.findDOMNode(this);
-
-    if (document.body.contains(thisElement)) {
+    if (document.body.contains(this.topDiv)) {
       callback();
     } else {
       requestAnimationFrame(() => this.waitForDOMAttachment(callback));
@@ -329,7 +326,6 @@ class HiGlassComponent extends React.Component {
     // in focus, everything is drawn at the top and overlaps. When it gains
     // focus we need to redraw everything in its proper place
     this.mounted = true;
-    this.element = ReactDOM.findDOMNode(this);
     window.addEventListener('focus', this.boundRefreshView);
 
     dictValues(this.state.views).forEach((v) => {
@@ -382,7 +378,7 @@ class HiGlassComponent extends React.Component {
       ElementQueries.listen();
 
       this.resizeSensor = new ResizeSensor(
-        this.element.parentNode, this.updateAfterResize.bind(this),
+        this.topDiv.parentNode, this.updateAfterResize.bind(this),
       );
 
       // this.forceUpdate();
@@ -395,7 +391,7 @@ class HiGlassComponent extends React.Component {
     this.animate();
     // this.handleExportViewsAsLink();
 
-    const baseSvg = select(this.element).append('svg').style('display', 'none');
+    const baseSvg = select(this.topDiv).append('svg').style('display', 'none');
 
     // Add SVG Icons
     icons.forEach(
