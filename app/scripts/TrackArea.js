@@ -100,8 +100,7 @@ class TrackArea extends React.Component {
           className="no-zoom"
           height="10px"
           onClick={() => {
-            const imgDom = ReactDOM.findDOMNode(this.imgClose);
-            const bbox = imgDom.getBoundingClientRect();
+            const bbox = this.imgClose.getBoundingClientRect();
             this.props.onCloseTrackMenuOpened(this.props.uid, bbox);
           }}
           style={this.getCloseImgStyle()}
