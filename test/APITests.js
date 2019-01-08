@@ -193,6 +193,11 @@ describe('API Tests', () => {
         simpleCenterViewConfig, { editable: false, bounded: true }
       );
 
+      // If the apis are equal, maybe the root problem is the divs?
+      expect(div).not.toEqual(div2);
+      // Does being inside the setTimeout cause a race condition somehow?
+      expect(api).not.toEqual(api2);
+
       setTimeout(() => {
         expect(api).not.toEqual(api2);
 
